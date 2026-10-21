@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Daily Grind Cafe | Artisan Coffee &amp; Fresh Bakes</title>
+<meta name="description" content="Artisan coffee, fresh bakes and a cozy corner to work or unwind. Order ahead on WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+tailwind.config = { theme: { extend: {
+  colors: { espresso: '#2C1810', cream: '#F9F6F0', amber: '#D4A373' },
+  fontFamily: { sans: ['Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'] }
+}}};
+</script>
+<style>
+  html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+  body { background: #F9F6F0; color: #2C1810; }
+  :focus-visible { outline: 3px solid #D4A373; outline-offset: 2px; }
+  .zoom img { transition: transform .6s ease; }
+  .zoom:hover img { transform: scale(1.08); }
+  .fade-in { animation: fade .35s ease both; }
+  @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .fade-in { animation: none; }
+    .zoom img { transition: none; }
+  }
+</style>
+</head>
+<body class="font-sans antialiased">
+
+<!-- Header -->
+<header class="sticky top-0 z-40 bg-espresso/95 backdrop-blur text-cream shadow-lg">
+  <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
+    <a href="#top" class="font-semibold text-lg tracking-tight flex items-center gap-2">
+      <svg class="w-6 h-6 text-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9z"/><path d="M17 11h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 3v3M12 3v3"/></svg>
+      The Daily Grind
+    </a>
+    <nav class="hidden md:flex items-center gap-7 text-sm" aria-label="Main">
+      <a class="hover:text-amber transition" href="#menu">Menu</a>
+      <a class="hover:text-amber transition" href="#about">About</a>
+      <a class="hover:text-amber transition" href="#gallery">Gallery</a>
+      <a class="hover:text-amber transition" href="#hours">Hours &amp; Location</a>
+      <a class="hover:text-amber transition" href="#contact">Contact</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="cartBtn" class="relative p-2 rounded-full hover:bg-white/10" aria-label="Open your order">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+        <span id="cartCount" class="hidden absolute -top-0.5 -right-0.5 bg-amber text-espresso text-[11px] font-semibold rounded-full min-w-[18px] h-[18px] px-1 flex items-center justify-center">0</span>
+      </button>
+      <a href="#menu" class="hidden sm:inline-block bg-amber text-espresso text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-white transition">Order Now</a>
+      <button id="navToggle" class="md:hidden p-2 rounded-full hover:bg-white/10" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav id="mobileNav" class="hidden md:hidden border-t border-white/10 px-4 pb-4 text-base" aria-label="Mobile">
+    <a class="block py-3" href="#menu">Menu</a>
+    <a class="block py-3" href="#about">About</a>
+    <a class="block py-3" href="#gallery">Gallery</a>
+    <a class="block py-3" href="#hours">Hours &amp; Location</a>
+    <a class="block py-3" href="#contact">Contact</a>
+    <a class="block mt-2 text-center bg-amber text-espresso font-semibold px-5 py-3 rounded-full" href="#menu">Order Now</a>
+  </nav>
+</header>
+
+<main id="top">
+
+<!-- Hero -->
+<section class="relative isolate overflow-hidden bg-espresso text-cream">
+  <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1800&q=80" alt="" class="absolute inset-0 -z-10 w-full h-full object-cover" onerror="this.remove()">
+  <div class="absolute inset-0 -z-10 bg-gradient-to-r from-espresso via-espresso/80 to-espresso/30"></div>
+  <div class="max-w-6xl mx-auto px-4 py-24 sm:py-32 lg:py-40">
+    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] max-w-2xl">Artisan Coffee &amp; Fresh Bakes, Crafted Daily.</h1>
+    <p class="mt-6 text-lg text-cream/85 max-w-xl leading-relaxed">Slow-roasted beans, buttery pastries straight from the oven, and a warm corner with your name on it. Stay for the afternoon or grab it to go.</p>
+    <div class="mt-9 flex flex-col sm:flex-row gap-3">
+      <a href="#menu" class="text-center bg-amber text-espresso font-semibold px-8 py-3.5 rounded-full hover:bg-white transition">View Menu</a>
+      <a href="#" data-wa class="wa-link text-center border-2 border-cream/70 font-semibold px-8 py-3.5 rounded-full hover:bg-cream hover:text-espresso transition" target="_blank" rel="noopener">WhatsApp Order</a>
+    </div>
+  </div>
+</section>
+
+<!-- Menu -->
+<section id="menu" class="py-20">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl sm:text-4xl font-bold">Our Menu</h2>
+    <p class="mt-3 text-espresso/70 max-w-xl">Pick your favorites, tap Add to Order, and send the whole order to us on WhatsApp.</p>
+    <div id="tabs" role="tablist" aria-label="Menu categories" class="mt-8 flex gap-2 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap"></div>
+    <div id="menuGrid" class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"></div>
+  </div>
+</section>
+
+<!-- Why us -->
+<section id="about" class="py-20 bg-espresso text-cream">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl sm:text-4xl font-bold max-w-xl">Small-batch care in every cup</h2>
+    <p class="mt-3 text-cream/75 max-w-xl">We started The Daily Grind to give the neighborhood a place that feels like home and tastes like craft.</p>
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
+      <div class="rounded-2xl bg-white/5 border border-white/10 p-7">
+        <svg class="w-10 h-10 text-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c4 2 6 6 5 10s-5 8-5 8-6-4-5-8 1-8 5-10z"/><path d="M12 6c-1 4 1 7 0 12"/></svg>
+        <h3 class="mt-5 text-xl font-semibold">100% Arabica Beans</h3>
+        <p class="mt-2 text-cream/75 leading-relaxed">Single-origin beans from high-altitude estates, roasted in small lots and ground fresh for every order.</p>
+      </div>
+      <div class="rounded-2xl bg-white/5 border border-white/10 p-7">
+        <svg class="w-10 h-10 text-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 15c0-4 4-8 9-8s9 4 9 8c0 1-1 2-2 2H5c-1 0-2-1-2-2z"/><path d="M8 11l1 2M12 10v3M16 11l-1 2"/></svg>
+        <h3 class="mt-5 text-xl font-semibold">Freshly Baked Daily</h3>
+        <p class="mt-2 text-cream/75 leading-relaxed">Croissants, cookies and loaves come out of our oven every morning, so nothing sits on the shelf overnight.</p>
+      </div>
+      <div class="rounded-2xl bg-white/5 border border-white/10 p-7">
+        <svg class="w-10 h-10 text-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a15 15 0 0 1 20 0"/><path d="M5.5 12.5a10 10 0 0 1 13 0"/><path d="M9 16a5 5 0 0 1 6 0"/><circle cx="12" cy="19.5" r=".8" fill="currentColor"/></svg>
+        <h3 class="mt-5 text-xl font-semibold">Cozy Workspace &amp; Free Wi-Fi</h3>
+        <p class="mt-2 text-cream/75 leading-relaxed">Fast Wi-Fi, plenty of power outlets and soft lighting make it easy to settle in and get things done.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery -->
+<section id="gallery" class="py-20">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl sm:text-4xl font-bold">A look inside</h2>
+    <div class="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+      <figure class="zoom overflow-hidden rounded-2xl bg-espresso aspect-[3/4]"><img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=700&q=80" alt="Sunlit cafe interior with wooden tables" loading="lazy" class="w-full h-full object-cover" onerror="this.remove()"></figure>
+      <figure class="zoom overflow-hidden rounded-2xl bg-espresso aspect-[3/4]"><img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=700&q=80" alt="Signature latte with leaf latte art" loading="lazy" class="w-full h-full object-cover" onerror="this.remove()"></figure>
+      <figure class="zoom overflow-hidden rounded-2xl bg-espresso aspect-[3/4]"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=700&q=80" alt="Golden croissants fresh from the oven" loading="lazy" class="w-full h-full object-cover" onerror="this.remove()"></figure>
+      <figure class="zoom overflow-hidden rounded-2xl bg-espresso aspect-[3/4]"><img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=700&q=80" alt="Cup of coffee beside roasted beans" loading="lazy" class="w-full h-full object-cover" onerror="this.remove()"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- Hours & Location -->
+<section id="hours" class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl sm:text-4xl font-bold">Hours &amp; Location</h2>
+    <div class="mt-10 grid gap-8 lg:grid-cols-2">
+      <div class="rounded-2xl bg-cream border border-amber/40 p-7 sm:p-9">
+        <h3 class="text-xl font-semibold">Opening hours</h3>
+        <ul class="mt-4 divide-y divide-espresso/10">
+          <li class="flex justify-between py-3"><span>Monday to Friday</span><span class="font-medium">8:00 AM – 10:00 PM</span></li>
+          <li class="flex justify-between py-3"><span>Saturday</span><span class="font-medium">8:00 AM – 11:00 PM</span></li>
+          <li class="flex justify-between py-3"><span>Sunday</span><span class="font-medium">8:00 AM – 10:00 PM</span></li>
+        </ul>
+        <h3 class="mt-8 text-xl font-semibold">Find us</h3>
+        <p class="mt-3 leading-relaxed text-espresso/80">42 Brew Street, Old Town Square<br>Mumbai, Maharashtra 400001</p>
+        <a id="dirLink" href="https://www.google.com/maps/search/?api=1&query=42+Brew+Street+Old+Town+Square+Mumbai" target="_blank" rel="noopener" class="inline-block mt-5 bg-espresso text-cream font-semibold px-6 py-3 rounded-full hover:bg-amber hover:text-espresso transition">Get Directions</a>
+      </div>
+      <div class="rounded-2xl overflow-hidden border border-amber/40 min-h-[320px] bg-cream">
+        <iframe title="Map showing The Daily Grind Cafe" class="w-full h-full min-h-[320px]" style="border:0;filter:sepia(.35) saturate(.9)" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=42+Brew+Street+Old+Town+Square+Mumbai&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="py-20">
+  <div class="max-w-6xl mx-auto px-4 grid gap-10 lg:grid-cols-2">
+    <div>
+      <h2 class="text-3xl sm:text-4xl font-bold">Say hello</h2>
+      <p class="mt-3 text-espresso/70 max-w-md leading-relaxed">Planning a birthday, a team meetup or a quiet work session? Tell us what you need and we&rsquo;ll reply on WhatsApp.</p>
+      <ul class="mt-6 space-y-2 text-espresso/85">
+        <li>Phone: <a class="font-medium underline decoration-amber underline-offset-4" href="tel:+919999999999">+91 99999 99999</a></li>
+        <li>Email: <a class="font-medium underline decoration-amber underline-offset-4" href="mailto:hello@dailygrindcafe.com">hello@dailygrindcafe.com</a></li>
+      </ul>
+    </div>
+    <form id="contactForm" class="rounded-2xl bg-white border border-espresso/10 p-6 sm:p-8 space-y-4">
+      <div>
+        <label for="cName" class="block text-sm font-medium mb-1.5">Your name</label>
+        <input id="cName" required class="w-full rounded-xl border border-espresso/20 bg-cream px-4 py-3 focus:border-amber focus:outline-none">
+      </div>
+      <div>
+        <label for="cMsg" class="block text-sm font-medium mb-1.5">Message</label>
+        <textarea id="cMsg" rows="4" required class="w-full rounded-xl border border-espresso/20 bg-cream px-4 py-3 focus:border-amber focus:outline-none"></textarea>
+      </div>
+      <button type="submit" class="w-full bg-espresso text-cream font-semibold px-6 py-3.5 rounded-full hover:bg-amber hover:text-espresso transition">Send on WhatsApp</button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-espresso text-cream pt-14 pb-8">
+  <div class="max-w-6xl mx-auto px-4 flex flex-col items-center text-center gap-6">
+    <p class="text-xl font-semibold">The Daily Grind Cafe</p>
+    <div class="flex gap-3">
+      <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram" class="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center hover:bg-amber hover:text-espresso transition"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook" class="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center hover:bg-amber hover:text-espresso transition"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h2.5V5H14c-2.200 0-4 1.800-4 4v2H8v3h2v7h3v-7h2.500l.5-3h-3V9c0-.600.400-1 1-1z"/></svg></a>
+      <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter" class="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center hover:bg-amber hover:text-espresso transition"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 5.900c-.700.300-1.400.500-2.100.600.800-.500 1.300-1.200 1.600-2-.700.400-1.500.700-2.300.900a3.700 3.700 0 0 0-6.300 3.400C9.800 8.600 7 7.100 5.200 4.900c-1 1.700-.5 3.800 1.100 4.900-.6 0-1.200-.2-1.700-.5 0 1.800 1.200 3.300 3 3.700-.5.100-1.100.2-1.700.1.500 1.500 1.900 2.600 3.500 2.600A7.400 7.400 0 0 1 3 17.300 10.500 10.500 0 0 0 8.700 19c6.800 0 10.500-5.700 10.300-10.800.8-.5 1.400-1.200 2-2.300z"/></svg></a>
+    </div>
+    <p class="text-sm text-cream/70">&copy; 2026 The Daily Grind Cafe. All rights reserved.</p>
+    <p class="text-xs text-cream/40">Website crafted by [Your Agency Name]</p>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="#" data-wa class="wa-link fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-[#25D366] text-white shadow-xl flex items-center justify-center hover:scale-105 transition" target="_blank" rel="noopener" aria-label="Order on WhatsApp">
+  <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.600 15.100L2 22l5-1.300A10 10 0 1 0 12 2zm5.200 14.100c-.2.600-1.300 1.200-1.800 1.200-.5.100-1 .2-3.300-.7-2.800-1.200-4.600-4-4.700-4.200-.1-.2-1.100-1.500-1.100-2.800s.7-2 .9-2.300c.3-.3.600-.3.800-.3h.6c.2 0 .4 0 .6.500l.8 2c.1.200.1.400 0 .6l-.4.600c-.2.200-.3.400-.1.700.2.300.8 1.300 1.700 2.100 1.200 1 2.100 1.300 2.400 1.500.3.100.5.100.7-.1l.9-1.100c.2-.3.400-.2.700-.1l1.900.9c.3.100.5.200.6.300.1.200.1.800-.1 1.300z"/></svg>
+</a>
+
+<!-- Order drawer -->
+<div id="overlay" class="hidden fixed inset-0 z-50 bg-black/50"></div>
+<aside id="drawer" class="fixed top-0 right-0 z-50 h-full w-full max-w-sm bg-cream shadow-2xl translate-x-full transition-transform duration-300 flex flex-col" aria-label="Your order" aria-hidden="true">
+  <div class="flex items-center justify-between p-5 border-b border-espresso/10">
+    <h2 class="text-xl font-semibold">Your order</h2>
+    <button id="closeCart" class="p-2 rounded-full hover:bg-espresso/10" aria-label="Close order"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div id="cartItems" class="flex-1 overflow-y-auto p-5 space-y-4"></div>
+  <div class="p-5 border-t border-espresso/10">
+    <div class="flex justify-between text-lg font-semibold mb-4"><span>Total</span><span id="cartTotal">₹0</span></div>
+    <a id="sendOrder" href="#" target="_blank" rel="noopener" class="block text-center bg-[#25D366] text-white font-semibold px-6 py-3.5 rounded-full">Send order on WhatsApp</a>
+    <button id="clearCart" class="w-full mt-3 text-sm text-espresso/70 hover:text-espresso underline underline-offset-4">Clear order</button>
+  </div>
+</aside>
+
+<script>
+(function () {
+  // ---- Settings: change these two lines for your cafe ----
+  var WA_NUMBER = '919999999999';   // country code + number, digits only
+  var CURRENCY = '₹';
+
+  var MENU = {
+    'Coffee & Espresso': [
+      ['Classic Espresso', 'Rich double shot with a golden crema.', 120],
+      ['Flat White', 'Velvety microfoam over a bold ristretto.', 190],
+      ['Caramel Latte', 'Espresso, steamed milk and house caramel.', 220],
+      ['Cold Brew', 'Steeped for 18 hours, served over ice.', 210],
+      ['Cappuccino', 'Equal parts espresso, milk and thick foam.', 180],
+      ['Hazelnut Mocha', 'Dark chocolate, hazelnut and espresso.', 240]
+    ],
+    'Teas & Coolers': [
+      ['Masala Chai', 'Assam tea simmered with ginger and cardamom.', 110],
+      ['Jasmine Green Tea', 'Light, floral and gently sweet.', 130],
+      ['Iced Peach Tea', 'Black tea shaken with ripe peach.', 170],
+      ['Mint Lemonade', 'Fresh lime, crushed mint and soda.', 150],
+      ['Blue Butterfly Cooler', 'Butterfly pea flower, lemon and tonic.', 180],
+      ['Watermelon Splash', 'Cold-pressed watermelon with a squeeze of lime.', 160]
+    ],
+    'Bakery & Pastries': [
+      ['Butter Croissant', 'Flaky layers, baked golden each morning.', 140],
+      ['Almond Danish', 'Frangipane filling with toasted almonds.', 170],
+      ['Chocolate Chip Cookie', 'Chewy center, crisp edges, sea salt.', 100],
+      ['Blueberry Muffin', 'Packed with berries and a crumb top.', 130],
+      ['Cinnamon Roll', 'Warm, soft and glazed with cream cheese.', 160],
+      ['Banana Walnut Loaf', 'Moist loaf slice with toasted walnuts.', 120]
+    ],
+    'Breakfast & Brunch': [
+      ['Avocado Toast', 'Sourdough, smashed avocado, chili flakes, poached egg.', 320],
+      ['Classic Eggs Benedict', 'English muffin, ham and hollandaise.', 360],
+      ['Pancake Stack', 'Three fluffy pancakes with maple and berries.', 290],
+      ['Cheese Omelette', 'Three-egg omelette with herbs and toast.', 250],
+      ['Grilled Veg Sandwich', 'Pesto, grilled vegetables and mozzarella.', 270],
+      ['Granola Yogurt Bowl', 'Greek yogurt, honey, granola and fruit.', 230]
+    ]
+  };
+
+  var cats = Object.keys(MENU), active = cats[0], cart = {};
+  var $ = function (id) { return document.getElementById(id); };
+  var fmt = function (n) { return CURRENCY + n.toLocaleString('en-IN'); };
+  var esc = function (s) { return String(s).replace(/[&<>"']/g, function (c) { return '&#' + c.charCodeAt(0) + ';'; }); };
+  var waLink = function (text) { return 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(text); };
+
+  // Static WhatsApp links
+  document.querySelectorAll('.wa-link').forEach(function (a) {
+    a.href = waLink('Hi The Daily Grind Cafe! I\u2019d like to place a takeaway order.');
+  });
+
+  // Tabs
+  function renderTabs() {
+    $('tabs').innerHTML = cats.map(function (c) {
+      var on = c === active;
+      return '<button role="tab" aria-selected="' + on + '" data-cat="' + esc(c) + '" class="whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-medium border transition ' +
+        (on ? 'bg-espresso text-cream border-espresso' : 'bg-white text-espresso border-espresso/20 hover:border-amber') + '">' + esc(c) + '</button>';
+    }).join('');
+  }
+  function renderMenu() {
+    $('menuGrid').innerHTML = MENU[active].map(function (it) {
+      return '<article class="fade-in flex flex-col justify-between rounded-2xl bg-white border border-espresso/10 p-6 hover:shadow-lg hover:border-amber transition">' +
+        '<div><div class="flex items-start justify-between gap-3"><h3 class="font-semibold text-lg leading-snug">' + esc(it[0]) + '</h3>' +
+        '<span class="font-semibold text-amber shrink-0">' + fmt(it[2]) + '</span></div>' +
+        '<p class="mt-2 text-sm text-espresso/70 leading-relaxed">' + esc(it[1]) + '</p></div>' +
+        '<button data-add="' + esc(it[0]) + '" class="mt-5 w-full bg-espresso text-cream text-sm font-semibold py-2.5 rounded-full hover:bg-amber hover:text-espresso transition">Add to Order</button></article>';
+    }).join('');
+  }
+  $('tabs').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-cat]'); if (!b) return;
+    active = b.dataset.cat; renderTabs(); renderMenu();
+  });
+
+  // Cart
+  function findItem(name) {
+    for (var c in MENU) for (var i = 0; i < MENU[c].length; i++) if (MENU[c][i][0] === name) return MENU[c][i];
+  }
+  function renderCart() {
+    var names = Object.keys(cart), count = 0, total = 0;
+    names.forEach(function (n) { count += cart[n].qty; total += cart[n].qty * cart[n].price; });
+    var badge = $('cartCount');
+    badge.textContent = count; badge.classList.toggle('hidden', !count);
+    $('cartTotal').textContent = fmt(total);
+    $('cartItems').innerHTML = names.length ? names.map(function (n) {
+      var it = cart[n];
+      return '<div class="flex items-center justify-between gap-3"><div><p class="font-medium">' + esc(n) + '</p><p class="text-sm text-espresso/60">' + fmt(it.price) + ' each</p></div>' +
+        '<div class="flex items-center gap-2"><button data-dec="' + esc(n) + '" class="w-8 h-8 rounded-full border border-espresso/20 hover:bg-espresso hover:text-cream" aria-label="Remove one ' + esc(n) + '">&minus;</button>' +
+        '<span class="w-5 text-center font-medium">' + it.qty + '</span>' +
+        '<button data-inc="' + esc(n) + '" class="w-8 h-8 rounded-full border border-espresso/20 hover:bg-espresso hover:text-cream" aria-label="Add one ' + esc(n) + '">+</button></div></div>';
+    }).join('') : '<p class="text-espresso/60">Your order is empty. Add something tasty from the menu.</p>';
+    var lines = names.map(function (n) { return '\u2022 ' + cart[n].qty + ' x ' + n + ' (' + fmt(cart[n].qty * cart[n].price) + ')'; });
+    var msg = 'Hi The Daily Grind Cafe! I\u2019d like to order:\n' + lines.join('\n') + '\n\nTotal: ' + fmt(total);
+    var send = $('sendOrder');
+    send.href = names.length ? waLink(msg) : '#';
+    send.classList.toggle('opacity-50', !names.length);
+    send.classList.toggle('pointer-events-none', !names.length);
+  }
+  function add(name, d) {
+    var it = findItem(name) || cart[name] && [name, '', cart[name].price]; if (!it) return;
+    cart[name] = cart[name] || { price: it[2], qty: 0 };
+    cart[name].qty += d;
+    if (cart[name].qty <= 0) delete cart[name];
+    renderCart();
+  }
+  $('menuGrid').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-add]'); if (!b) return;
+    add(b.dataset.add, 1);
+    var old = b.textContent; b.textContent = 'Added \u2713';
+    setTimeout(function () { b.textContent = old; }, 900);
+  });
+  $('cartItems').addEventListener('click', function (e) {
+    var i = e.target.closest('[data-inc]'), d = e.target.closest('[data-dec]');
+    if (i) add(i.dataset.inc, 1); if (d) add(d.dataset.dec, -1);
+  });
+  $('clearCart').addEventListener('click', function () { cart = {}; renderCart(); });
+
+  // Drawer
+  function toggleDrawer(open) {
+    $('drawer').classList.toggle('translate-x-full', !open);
+    $('drawer').setAttribute('aria-hidden', String(!open));
+    $('overlay').classList.toggle('hidden', !open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  $('cartBtn').addEventListener('click', function () { toggleDrawer(true); });
+  $('closeCart').addEventListener('click', function () { toggleDrawer(false); });
+  $('overlay').addEventListener('click', function () { toggleDrawer(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') toggleDrawer(false); });
+
+  // Mobile nav
+  var nt = $('navToggle'), mn = $('mobileNav');
+  nt.addEventListener('click', function () {
+    var open = mn.classList.toggle('hidden') === false;
+    nt.setAttribute('aria-expanded', String(open));
+  });
+  mn.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') { mn.classList.add('hidden'); nt.setAttribute('aria-expanded', 'false'); }
+  });
+
+  // Contact form
+  $('contactForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var text = 'Hi The Daily Grind Cafe! I\u2019m ' + $('cName').value.trim() + '.\n' + $('cMsg').value.trim();
+    window.open(waLink(text), '_blank', 'noopener');
+  });
+
+  renderTabs(); renderMenu(); renderCart();
+})();
+</script>
+</body>
+</html>
